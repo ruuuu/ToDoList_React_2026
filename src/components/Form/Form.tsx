@@ -1,3 +1,4 @@
+import './Form.scss'
 
 
 export const Form = () => {
