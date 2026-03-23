@@ -1,18 +1,8 @@
-import { Form } from "../components/Form/Form"
-import { Header } from "../components/Header/Header"
-
-
-
 
 
 export const ToDoList = () => {
 
   return (
-    <> 
-   
-    <Header />
-
-    <Form />
     <div className="todo-container">
         <ul className="todo-list failed">
             <li className="todo-list-item__wrapper">
@@ -33,7 +23,6 @@ export const ToDoList = () => {
             </li>
         </ul>
     </div>
-    </>
-    
   )
+
 }
