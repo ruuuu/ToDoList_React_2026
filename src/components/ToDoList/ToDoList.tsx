@@ -11,7 +11,7 @@ export const ToDoList = (props: { todos: ToDo[] }) => {
 
 
   
-  const checkedlist = () => {     // выполненные заадчи
+  const checkedList = () => {     // выполненные заадчи
     return props.todos
               .filter((item) => item.isDone === true)  
               .map((todo, index) => {
@@ -23,7 +23,7 @@ export const ToDoList = (props: { todos: ToDo[] }) => {
 
 
 
-  const uncheckedlist = () => {     // Невыполненные заадчи
+  const uncheckedList = () => {     // Невыполненные заадчи
     return props.todos
               .filter((item) => item.isDone === false)  
               .map((todo, index) => {
@@ -38,10 +38,10 @@ export const ToDoList = (props: { todos: ToDo[] }) => {
   return (
     <div className="todo-container">
         <ul className="todo-list failed">
-          { checkedlist() }
+          { checkedList() }
         </ul>
         <ul className="todo-list completed">
-          { uncheckedlist() }
+          { uncheckedList() }
         </ul>
     </div>
   )
