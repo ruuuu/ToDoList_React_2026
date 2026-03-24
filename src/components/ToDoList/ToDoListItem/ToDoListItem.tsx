@@ -1,7 +1,10 @@
+import { ToDo } from '../../../models/todo-item'
 import './ToDoListItem.scss'
 
 
-export const ToDoListItem = (props: { toDoItem: { id: number, text: string, isDone: boolean } }) => {        // props передаем как параметр
+
+
+export const ToDoListItem = (props: { toDoItem: ToDo }) => {        // props передаем как параметр
 
   console.log(props)
 
@@ -12,9 +15,10 @@ export const ToDoListItem = (props: { toDoItem: { id: number, text: string, isDo
       <span> {props.toDoItem.text} </span>
       <div className="todo-list-item__buttons">
         <button className="btn-trash"></button>
-        <button className="btn-check"></button>
+        <button className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'}></button>
       </div>
     </li>
   )
 
 }
+

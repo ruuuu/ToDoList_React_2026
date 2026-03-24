@@ -1,32 +1,47 @@
 import { ToDoListItem } from "./ToDoListItem/ToDoListItem"
 import './ToDoList.scss'
-
-
-
-interface ToDo {
-  id: number,
-  text: string, 
-  isDone: boolean
-}
+import { ToDo } from "../../models/todo-item"
 
 
 
 
-export const ToDoList = () => {
+export const ToDoList = (props: { todos: ToDo[] }) => {
 
-  const todo1: ToDo = {       // у объекта тип ToDo
-    id: 1,
-    text: 'Первая задача',
-    isDone: false
-  }
+  
+
+
+  
+  const checkedlist = () => {     // выполненные заадчи
+    return props.todos
+              .filter((item) => item.isDone === true)  
+              .map((todo, index) => {
+                return (
+                  <ToDoListItem toDoItem={todo} key={index} />    //  атрибуты передаем
+              )
+            })
+  };
+
+
+
+  const uncheckedlist = () => {     // Невыполненные заадчи
+    return props.todos
+              .filter((item) => item.isDone === false)  
+              .map((todo, index) => {
+                return (
+                  <ToDoListItem toDoItem={todo} key={index} />    
+                )
+            })
+  };
+
+  
 
   return (
     <div className="todo-container">
         <ul className="todo-list failed">
-            <ToDoListItem toDoItem={todo1} />      {/* передача атрибутов  */}
+          { checkedlist() }
         </ul>
         <ul className="todo-list completed">
-          {/* <ToDoListItem text="Мой текст" /> */}
+          { uncheckedlist() }
         </ul>
     </div>
   )

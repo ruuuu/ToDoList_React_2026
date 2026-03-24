@@ -2,6 +2,11 @@ https://reactdev.ru/learn/your-first-component/
 
 https://habr.com/ru/articles/335244/
 
+https://ru.legacy.reactjs.org/docs/hooks-intro.html Хуки
+https://ru.legacy.reactjs.org/docs/hooks-overview.html 
+https://ru.legacy.reactjs.org/docs/lists-and-keys.html списки и ключи
+https://habr.com/ru/companies/otus/articles/456124/ TypeSript дл новичков
+
 TypeScript компилируется JS, при компиляции происходит постонная проверка типов
 
 
