@@ -1,13 +1,13 @@
-import './Header.scss'
+import  classes from './Header.module.scss'       // classes это объект
 
 
 
 export const Header = () => {
 
   return (
-    <header className="header">
-        <div className="header-container">
-            <a href="/">ToDo</a>
+    <header className={classes.header}>
+        <div className={classes.container}>
+            <a className={`${classes.link} ${classes.active}`} href="/">ToDo</a>
         </div>
     </header> 
   )
