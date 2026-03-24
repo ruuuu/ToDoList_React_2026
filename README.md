@@ -2,6 +2,8 @@ https://reactdev.ru/learn/your-first-component/
 
 https://habr.com/ru/articles/335244/
 
+TypeScript компилируется JS, при компиляции происходит постонная проверка типов
+
 
 # Getting Started with Create React App
 

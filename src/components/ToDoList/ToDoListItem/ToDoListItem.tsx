@@ -1,11 +1,15 @@
 import './ToDoListItem.scss'
 
 
-export const ToDoListItem = () => {
+export const ToDoListItem = (props: { toDoItem: { id: number, text: string, isDone: boolean } }) => {        // props передаем как параметр
+
+  console.log(props)
+
+
 
   return (
     <li className="todo-list-item__wrapper">
-      <span>Первая задача</span>
+      <span> {props.toDoItem.text} </span>
       <div className="todo-list-item__buttons">
         <button className="btn-trash"></button>
         <button className="btn-check"></button>
