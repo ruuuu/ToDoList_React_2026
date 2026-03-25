@@ -1,7 +1,7 @@
 import { ToDoListItem } from "./ToDoListItem/ToDoListItem"
 import './ToDoList.scss'
 import { ToDo } from "../../models/todo-item"
-
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -17,8 +17,8 @@ export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToD
               .map((todo, index) => {
                 return (
                   <ToDoListItem toDoItem={todo} key={index} updateToDo={props.updateToDo} deleteToDo={props.deleteToDo} />    //  атрибуты передаем
-              )
-            })
+                )
+            });
   };
 
 
@@ -30,7 +30,7 @@ export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToD
                 return (
                   <ToDoListItem toDoItem={todo} key={index} updateToDo={props.updateToDo} deleteToDo={props.deleteToDo} />    
                 )
-            })
+            });
   };
 
   
@@ -43,6 +43,7 @@ export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToD
         <ul className="todo-list completed">
           { uncheckedList() }
         </ul>
+        <ToastContainer position="bottom-right" />
     </div>
   )
 

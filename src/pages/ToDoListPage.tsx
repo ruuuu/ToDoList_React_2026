@@ -37,13 +37,14 @@ export const ToDoListPage = () => {
       return item 
     });
 
+    
     setTodosArray(newArray)  // обновили перем состояния
   };
 
 
 
 
-  
+
   const deleteToDo = (toDoItem: ToDo) => {
     console.log('delete')
    
