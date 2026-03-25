@@ -5,7 +5,7 @@ import { ToDo } from "../../models/todo-item"
 
 
 
-export const ToDoList = (props: { todos: ToDo[] }) => {
+export const ToDoList = (props: { todos: ToDo[] }) => {     // массив элементов типа ToDo
 
   
 

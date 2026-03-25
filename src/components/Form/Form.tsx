@@ -1,31 +1,29 @@
 import './Form.scss'
-import { ChangeEvent } from 'react';
+import { useState } from 'react';
 
 
 
 export const Form = (props: { createNewToDo: Function}) => {      //   функцию передаем 
 
-  let createText = ''   // введенное значение в поле
-
+  const [text, setText] = useState<string>('')     // переменная состояния, указываем ее тип 
 
 
   const formSubmit = () => {          // отправка формы
-    console.log(createText)
-
+    
+    if(text){
+      props.createNewToDo(text)
+      setText('')         // очищаем поле
+    }
   };
 
 
-  const changeText = (evt: ChangeEvent<HTMLInputElement>) => {
-    createText = evt.target.value
-  };
-
-
+  
 
   return (
     <div className="form-wrapper">
         <form action="#" onSubmit={formSubmit}>
             <label>
-                <input type="text" onInput={changeText}  />
+                <input type="text" onChange={(evt) => setText(evt.target.value)} value={text} />
                 <button></button>
             </label>
         </form>
