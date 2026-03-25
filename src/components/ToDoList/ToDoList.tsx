@@ -5,7 +5,7 @@ import { ToDo } from "../../models/todo-item"
 
 
 
-export const ToDoList = (props: { todos: ToDo[] }) => {     // массив элементов типа ToDo
+export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToDo: Function }) => {     // массив элементов типа ToDo
 
   
 
@@ -16,7 +16,7 @@ export const ToDoList = (props: { todos: ToDo[] }) => {     // массив эл
               .filter((item) => item.isDone === true)  
               .map((todo, index) => {
                 return (
-                  <ToDoListItem toDoItem={todo} key={index} />    //  атрибуты передаем
+                  <ToDoListItem toDoItem={todo} key={index} updateToDo={props.updateToDo} deleteToDo={props.deleteToDo} />    //  атрибуты передаем
               )
             })
   };
@@ -28,7 +28,7 @@ export const ToDoList = (props: { todos: ToDo[] }) => {     // массив эл
               .filter((item) => item.isDone === false)  
               .map((todo, index) => {
                 return (
-                  <ToDoListItem toDoItem={todo} key={index} />    
+                  <ToDoListItem toDoItem={todo} key={index} updateToDo={props.updateToDo} deleteToDo={props.deleteToDo} />    
                 )
             })
   };

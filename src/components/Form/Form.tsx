@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export const Form = (props: { createNewToDo: Function}) => {      //   функцию передаем 
 
-  const [text, setText] = useState<string>('')     // переменная состояния, указываем ее тип 
+  const [text, setText] = useState<string>('')     // переменная состояния(обновляется асинхронно), указываем ее тип 
 
 
   const formSubmit = () => {          // отправка формы

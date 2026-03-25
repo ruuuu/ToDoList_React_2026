@@ -10,28 +10,9 @@ import { ToDo } from "../models/todo-item"
 
 export const ToDoListPage = () => {
 
-  const [todosArray, setTodosArray] = useState<ToDo[]>([    //  указали тип элемнтов массива
-    {       // у объекта тип ToDo
-      id: 0,
-      text: 'Первая задача',
-      isDone: false
-    },
-    {       
-      id: 1,
-      text: 'Вторая задача',
-      isDone: false
-    },
-    {       
-      id: 2,
-      text: 'Третья задача',
-      isDone: true
-    },
-    {       
-      id: 3,
-      text: 'Четвертая задача',
-      isDone: true
-    }
-  ])
+  const [todosArray, setTodosArray] = useState<ToDo[]>([])   //  указали тип элемнтов ToDo[] массива
+    
+ 
 
   
 
@@ -40,21 +21,34 @@ export const ToDoListPage = () => {
     const newToDo: ToDo = { id: todosArray.length, text: text, isDone: false }    
     
     setTodosArray([...todosArray, newToDo])       // обновили перем состояния
-    console.log('todosArray после добавления элемента', todosArray)
+    console.log('todosArray после добавления элемента', todosArray)     // React не обновляет состояние синхронно сразу после вызова setTodosArray(), он планирует обновление, затем при след рендеринге обновит.
   };
 
 
 
   const updateToDo = (toDoItem: ToDo) => {   // при нажатии на галочку(isDone=true) 
     console.log('update')
-    console.log(toDoItem)
+   
+    const newArray  = todosArray.map((item) => {
+      if(item.id === toDoItem.id){
+        item.isDone = !toDoItem.isDone
+      }
+
+      return item 
+    });
+
+    setTodosArray(newArray)  // обновили перем состояния
   };
 
 
 
+
+  
   const deleteToDo = (toDoItem: ToDo) => {
     console.log('delete')
-    console.log(toDoItem)
+   
+    const filterTodosArray = todosArray.filter((item) => item.id !== toDoItem.id)
+    setTodosArray(filterTodosArray)     // обновляем  перем состояния
   };
 
 
@@ -63,7 +57,7 @@ export const ToDoListPage = () => {
     <> 
         <Header />
         <Form createNewToDo={createNewToDo} />
-        <ToDoList todos={todosArray} />
+        <ToDoList todos={todosArray} updateToDo={updateToDo} deleteToDo={deleteToDo} />
     </>
     
   )
