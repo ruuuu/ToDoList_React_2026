@@ -43,7 +43,7 @@ export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToD
         <ul className="todo-list completed">
           { uncheckedList() }
         </ul>
-        <ToastContainer position="bottom-right" />
+        <ToastContainer position="bottom-right" />          {/* для уведомления контейнер */}
     </div>
   )
 

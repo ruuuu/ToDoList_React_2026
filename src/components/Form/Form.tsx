@@ -1,6 +1,6 @@
 import './Form.scss'
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 
@@ -30,7 +30,6 @@ export const Form = (props: { createNewToDo: Function}) => {      //   функ�
             <label>
                 <input type="text" onChange={(evt) => setText(evt.target.value)} value={text} />
                 <button></button>
-                {/* <ToastContainer position="bottom-right" /> */}
             </label>
         </form>
     </div>

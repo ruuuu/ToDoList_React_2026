@@ -9,7 +9,13 @@ export const ToDoListItem = (props: { toDoItem: ToDo, updateToDo: Function, dele
 
   const notify_delete = () => {
     toast("Задача удалена!");
-  }
+  };
+
+
+  const notify_update = () => {
+    toast("Задача обновлена!");
+  };
+
 
 
   return (
@@ -23,7 +29,11 @@ export const ToDoListItem = (props: { toDoItem: ToDo, updateToDo: Function, dele
           }}>
         </button>             {/* передаем коллбэк(в реакт надо передавать в обработчик ссылку на функцию), чтобы функция вызывалась при клике, а не сразу при рендеринге(то есть сразу вызовется) */}
          
-        <button className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'}  onClick={() => props.updateToDo(props.toDoItem)}></button>
+        <button className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'}  onClick={() => {
+            props.updateToDo(props.toDoItem)
+            notify_update()
+          }}>
+        </button>
       </div>
     </li>
   )
