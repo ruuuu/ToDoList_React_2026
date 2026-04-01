@@ -8,9 +8,6 @@ import { ToastContainer } from 'react-toastify';
 export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToDo: Function }) => {     // массив элементов типа ToDo
 
   
-
-
-  
   const checkedList = () => {     // выполненные заадчи
     return props.todos
               .filter((item) => item.isDone === true)  
@@ -23,7 +20,7 @@ export const ToDoList = (props: { todos: ToDo[], updateToDo: Function, deleteToD
 
 
 
-  const uncheckedList = () => {     // Невыполненные заадчи
+  const uncheckedList = () => {     // невыполненные заадчи
     return props.todos
               .filter((item) => item.isDone === false)  
               .map((todo, index) => {

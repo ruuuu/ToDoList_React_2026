@@ -55,7 +55,6 @@ export const ToDoListPage = () => {
 
   return (
     <> 
-        
         <Form createNewToDo={createNewToDo} />
         <ToDoList todos={todosArray} updateToDo={updateToDo} deleteToDo={deleteToDo} />
     </>
