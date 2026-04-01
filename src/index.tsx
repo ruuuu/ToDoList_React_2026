@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { Header } from './components/Header/Header';
 import { ToDo } from './models/todo-item';
+import { NotFound } from './pages/404';
 
 
 
@@ -49,8 +50,9 @@ root.render(
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage todosArray={todosArray} />} />      {/*  вызываем фукнцию HomePage */}
-        <Route path="/todo" element={<ToDoListPage />} />             
+        <Route path="/" element={<HomePage todosArray={todosArray} />} />      {/*  вызываем фукнцию HomePage при переход на / */}
+        <Route path="/todo" element={<ToDoListPage />} />          
+        <Route path="*" element={<NotFound />} />           
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
